@@ -1,10 +1,10 @@
-import { LayoutBasedePagina } from '../../shared/layouts';
+import { LayoutBaseDePagina } from '../../shared/layouts';
 
 export const Dashboard = () => {
 
   return (
-    <LayoutBasedePagina titulo='Pagina Inicial'>
+    <LayoutBaseDePagina titulo='Pagina Inicial'>
         
-    </LayoutBasedePagina>
+    </LayoutBaseDePagina>
   );
 };

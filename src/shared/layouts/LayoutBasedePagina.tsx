@@ -1,6 +1,7 @@
 import { Box } from '@mui/system';
-import { IconButton, Icon, Typography, useTheme } from '@mui/material';
+import { Icon, IconButton,  Typography, useMediaQuery, useTheme } from '@mui/material';
 import { ReactNode } from 'react';
+import { useDrawerContext } from '../contexts';
 
 
 interface ILayoutBasedePaginaProps {
@@ -12,15 +13,22 @@ interface ILayoutBasedePaginaProps {
 
 
 }
-export const LayoutBasedePagina: React.FC<ILayoutBasedePaginaProps> = ({ children, titulo }) => {
+export const LayoutBaseDePagina: React.FC<ILayoutBasedePaginaProps> = ({ children, titulo }) => {
+  
   const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const { toggleDrawerOpen } = useDrawerContext();
 
   return (
     <Box height='100%' display='flex' flexDirection='column' gap={1}> 
       <Box padding={1} display='flex' alignItems='center' height={theme.spacing(12)} gap={1}>
-        <IconButton>
-          <Icon>menu</Icon>
-        </IconButton>
+        {smDown && (
+          <IconButton onClick={toggleDrawerOpen}>
+            <Icon>menu</Icon>
+          </IconButton>
+        )}
+        
         <Typography variant = 'h5'>
           {titulo}    
         </Typography>
