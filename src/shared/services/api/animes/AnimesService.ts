@@ -21,14 +21,25 @@ type TAnimesComTotalCount = {
 };
 
 
-const getAll = async (page = 1, filter= ''): Promise<any> => {
+const getAll = async (page = 1, filter= ''): Promise<TAnimesComTotalCount | Error> => {
   try{
     const urlRelativa = `/animes?_page=${page}&_limit=${Enviroment.LIMITE_DE_LINHAS}&tituloDoAnime_like=${filter}`;
 
-    const {data} = await Api.get(urlRelativa);  
+    const {data, headers} = await Api.get(urlRelativa);
+    
+    if(data) {
+      return{
+        data,
+        totalCount: Number(headers['x-total-count'] || Enviroment.LIMITE_DE_LINHAS),
+      };
+    }
+
+    return new Error('Erro ao listar aos registros.');
 
   } catch(error){
 
+    console.error(error);
+    return new Error((error as {message:string}). message ||'Erro ao listar aos registros.');
   }
     
 };
