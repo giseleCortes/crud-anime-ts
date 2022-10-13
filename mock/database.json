@@ -2,8 +2,10 @@
     "animes": [
         {
             "id":1,
-            "titulo": "Naruto",
-            "genero": "não sei"
+            "tituloDoAnime": "Naruto",
+            "episodio": 175,
+            "generoId": "não sei"
         }
     ]
 }
+

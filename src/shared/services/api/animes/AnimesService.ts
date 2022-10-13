@@ -83,7 +83,7 @@ const create= async (dados: Omit<IDetalheAnimes, 'id'>): Promise<number | Error>
 
 const updateById= async (id: number, dados: IDetalheAnimes): Promise<void | Error> => {
   try{
-    const {data} = await Api.put(`/pessoas/${id}`, dados);
+    await Api.put(`/animes/${id}`, dados);
   } catch(error){
 
     console.error(error);
@@ -93,7 +93,7 @@ const updateById= async (id: number, dados: IDetalheAnimes): Promise<void | Erro
 
 const deleteById= async (id: number): Promise<void | Error> => {
   try{
-    await Api.delete(`/pessoas/${id}`);
+    await Api.delete(`/animes/${id}`);
   } catch(error){
 
     console.error(error);
