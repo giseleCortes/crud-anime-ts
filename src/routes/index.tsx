@@ -15,7 +15,7 @@ export const AppRoutes = () => {
         path: '/paginal-inicial',
       },
       {
-        icon: 'catching-pokemon',
+        icon: 'catching-pokemon-sharp',
         label:'Animes',
         path: '/animes',
       },
